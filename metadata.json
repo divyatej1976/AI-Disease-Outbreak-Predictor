@@ -1,0 +1,5 @@
+{
+  "name": "AI Disease Outbreak Predictor",
+  "description": "An AI-powered application using a simulated Bayesian Network, powered by the Gemini API, to assess and predict the risk of disease outbreaks based on various environmental and epidemiological factors.",
+  "requestFramePermissions": []
+}
