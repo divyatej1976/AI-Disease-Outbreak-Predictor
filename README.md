@@ -1,6 +1,6 @@
 # AI Disease Outbreak Predictor: Epidemic.Intel
 
-![Epidemic.Intel Dashboard](https://raw.githubusercontent.com/placeholder-path/screenshot.png) *(Replace with your actual screenshot)*
+![Epidemic.Intel Dashboard](https://raw.githubusercontent.com/placeholder-path/screenshot.png) 
 
 ## 📖 Overview
 **Epidemic.Intel** is a sophisticated, multi-agent decision support system designed to forecast infectious disease outbreak risks. It functions as an interactive dashboard where users can adjust environmental and epidemiological factors—either manually or via live satellite/weather telemetry—to observe their impact on outbreak probability in real-time.
