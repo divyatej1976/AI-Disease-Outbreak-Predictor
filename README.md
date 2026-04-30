@@ -1,104 +1,109 @@
-# AI Disease Outbreak Predictor
+# AI Disease Outbreak Predictor: Epidemic.Intel
 
-![AI Disease Outbreak Predictor UI Screenshot](https://storage.googleapis.com/aistudio-o-prd-12270258-1b2c/public/github/disease-predictor/screenshot.png)
+![Epidemic.Intel Dashboard](https://raw.githubusercontent.com/placeholder-path/screenshot.png) *(Replace with your actual screenshot)*
 
 ## 📖 Overview
+**Epidemic.Intel** is a sophisticated, multi-agent decision support system designed to forecast infectious disease outbreak risks. It functions as an interactive dashboard where users can adjust environmental and epidemiological factors—either manually or via live satellite/weather telemetry—to observe their impact on outbreak probability in real-time.
 
-The **AI Disease Outbreak Predictor** is a sophisticated web application that leverages the Google Gemini API to simulate and predict the risk of disease outbreaks. It functions as an interactive dashboard where users can adjust various environmental and epidemiological factors to see their impact on outbreak probability in real-time.
-
-The application is designed to showcase the power of large language models in performing complex data analysis and generating actionable insights, simulating a system that could be used by public health officials or researchers.
+Built as a high-fidelity tool for researchers and public health officials, this application demonstrates the power of **Multi-Agent AI Consensus**. Instead of a single model output, it simulates a council of experts (Epidemiologist, Environmental Scientist, and Strategist) to provide a nuanced, weighted risk assessment with a measurable disagreement index.
 
 ---
 
 ## ✨ Features
 
-*   **🤖 AI-Powered Predictions**: Utilizes the Gemini API to analyze input factors and predict outbreak probability, model confidence, and risk level.
-*   **🎛️ Interactive Controls**: Users can manually adjust risk factors like weather conditions, population density, sanitation levels, and recent case numbers using intuitive sliders.
-*   **🌐 Live Data Simulation**: Fetch and simulate realistic public health and environmental data for any city in the world to generate a dynamic, location-based risk assessment.
-*   **📊 Rich Data Visualization**:
-    *   A dynamic probability gauge that visually represents the current risk level.
-    *   A bar chart detailing the contribution of each factor to the overall prediction.
-    *   A historical trend chart to track prediction history over time.
-    *   A radar chart to visualize the risk factor profile.
-*   **🧠 In-Depth AI Analysis**: Generates a qualitative analysis of the risk, including a summary, identification of key drivers, and actionable mitigation strategies.
-*   **⚡ Dual AI Models**: Switch between the `gemini-2.5-flash` model for speed and the `gemini-2.5-pro` model for more nuanced analysis.
-*   **📱 Responsive Design**: A sleek, modern, and fully responsive UI built with Tailwind CSS that works on all screen sizes.
+- **🤖 Multi-Agent Consensus Engine**: Utilizes three independent AI expert personas to analyze telemetry data and reach a weighted consensus on risk, confidence, and drivers.
+- **🎛️ Interactive Simulation Controls**: Manually adjust critical risk factors like weather patterns, population density, sanitation infrastructure, and recent case velocity.
+- **🌐 Live Telemetry Integration**: Features an "Auto-fill from My Location" button that uses browser GPS and the **Open-Meteo API** to fetch real-time humidity, precipitation, visibility, and cloud cover.
+- **📊 Rich Data Visualization**:
+  - **Dynamic Probability Ring**: A high-fidelity visual representation of the final risk score.
+  - **Radar Profile**: Visualizes the distribution of risk factors (Weather, Density, Sanitation, Cases).
+  - **Expert Cards**: Staggered cards showing individual agent opinions, weightings, and recommendations.
+- **🧠 Scenario Comparison (The "Delta" View)**: Save a baseline state, modify parameters, and quantify the exact impact of interventions (e.g., how much a 20% sanitation improvement reduces risk).
+- **📱 Responsive Mission-Control UI**: A sleek, dark-themed "tactical" interface built with Tailwind CSS and Framer Motion for premium interactions.
 
 ---
 
 ## 🛠️ Tech Stack
 
-*   **Frontend**: [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/)
-*   **AI/ML**: [Google Gemini API](https://ai.google.dev/) (`@google/genai`)
-*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-*   **Data Visualization**: [Recharts](https://recharts.org/)
-*   **Icons**: [Lucide React](https://lucide.dev/)
+- **Frontend**: React 19, TypeScript, Vite
+- **Backend**: Python FastAPI, Uvicorn
+- **AI/LLM**: Google Gemini 2.0 Flash
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Visualization**: Recharts
+- **Live Data**: Open-Meteo API, Nominatim Geocoding
 
 ---
 
 ## 🚀 Getting Started
 
-To get this project up and running on your local machine, follow these simple steps.
+To run Epidemic.Intel locally, follow these steps.
 
 ### Prerequisites
+- Node.js (v18+)
+- Python (v3.11+)
+- A **Google Gemini API Key** (Get one at [Google AI Studio](https://aistudio.google.com/))
 
-You need to have a Google Gemini API key to use this application.
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/epidemic-intel.git
+cd epidemic-intel
+```
 
-1.  Go to [Google AI Studio](https://aistudio.google.com/app/apikey).
-2.  Click **"Create API key"** and copy the generated key.
+### 2. Environment Setup
+Create a `.env` file in the root directory:
+```env
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY_HERE
+```
 
-### Installation & Setup
+### 3. Install Dependencies
+```bash
+# Install Frontend
+npm install
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/ai-disease-predictor.git
-    cd ai-disease-predictor
-    ```
+# Install Backend
+pip install -r requirements.txt
+```
 
-2.  **Install dependencies:**
-    This project uses a modern setup with dependencies managed via an `importmap` in `index.html`, so no traditional `npm install` is required if you are running it in a compatible environment.
+### 4. Run the Application
+You will need two terminals running:
 
-3.  **Set up your environment variables:**
-    Create a file named `.env` in the root of your project and add your Gemini API key:
-    ```
-    API_KEY=YOUR_GEMINI_API_KEY_HERE
-    ```
-    The application is configured to read this key from `process.env.API_KEY`.
+**Terminal 1 (Backend):**
+```bash
+python -m uvicorn server.main:app --reload --port 8000
+```
 
-4.  **Run the application:**
-    Serve the `index.html` file using a local development server. If you have Node.js installed, you can use a simple server like `http-server`:
-    ```bash
-    # If you don't have http-server installed:
-    # npm install -g http-server
-    
-    http-server .
-    ```
-    Now, open your browser and navigate to the local address provided (e.g., `http://localhost:8080`).
+**Terminal 2 (Frontend):**
+```bash
+npm run dev
+```
+Open your browser and navigate to `http://localhost:3000`.
 
 ---
 
 ## 📂 Project Structure
-
-```
+```text
 .
-├── components/          # Reusable React components
-│   ├── ui/              # Generic UI components (Card, PanelLoader)
-│   ├── AnalysisPanel.tsx
-│   ├── ControlsPanel.tsx
-│   ├── Header.tsx
-│   ├── PredictionPanel.tsx
-│   └── TabNavigation.tsx
+├── components/          # React UI Components
+│   ├── ui/              # Generic UI (TiltCard, AnimatedChat)
+│   ├── AnalysisPanel.tsx # Expert opinion cards & drivers
+│   ├── ControlsPanel.tsx # Simulation & Live Weather inputs
+│   ├── ComparisonPanel.tsx # Scenario Delta Analysis
+│   └── PredictionPanel.tsx # Charts & Probability Gauges
+├── server/              # FastAPI Backend
+│   └── main.py          # Multi-agent consensus logic
 ├── services/            # API interaction logic
-│   └── geminiService.ts   # Functions for calling the Gemini API
-├── App.tsx              # Main application component
-├── index.html           # Entry point, includes importmap
-├── index.tsx            # React root renderer
-├── metadata.json        # Application metadata
-└── types.ts             # TypeScript type definitions
+│   ├── geminiService.ts # Frontend-to-Backend API calls
+│   └── weatherService.ts # Open-Meteo & Geocoding logic
+├── App.tsx              # Main application orchestrator
+├── types.ts             # TypeScript type definitions
+└── README.md            # This file
 ```
 
 ---
 
 ## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+---
+*Developed with a focus on explainable AI and precision epidemiology.*
